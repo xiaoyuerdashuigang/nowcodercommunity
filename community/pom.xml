@@ -8,7 +8,6 @@
         <version>2.7.0</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-<!--滴滴滴-->
     <groupId>com.pudongdevelopmentbank</groupId>
     <artifactId>community</artifactId>
     <version>0.0.1-SNAPSHOT</version>

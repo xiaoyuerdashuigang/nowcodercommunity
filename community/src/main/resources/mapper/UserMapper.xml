@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.pudongdevelopmentbank.dao.UserMapper">
+
+    <!-- 实体类和数据库表映射-->
+    <resultMap id="userMapper" type="user">
+        <id property="userId" column="id"></id>
+        <result property="userName" column="username"></result>
+        <result property="userPassword" column="password"></result>
+        <result property="userEmail" column="email"></result>
+        <result property="userType" column="type"></result>
+        <result property="userStatus" column="status"></result>
+        <result property="userActivationCode" column="activation_code"></result>
+        <result property="userHeaderUrl" column="header_url"></result>
+        <result property="userCreateTime" column="create_time"></result>
+    </resultMap>
+
+    <!-- 查询所有的字段-->
+    <sql id="allField">
+        id
+        ,username,password,email,type,status,activation_code,header_url,create_time
+    </sql>
+
+    <!-- 根据用户Id查询-->
+    <select id="selectById" parameterType="Integer" resultMap="userMapper">
+        select
+        <include refid="allField"></include>
+        from user
+        <where>
+            <if test="userId != null and userId != ''">
+                and id = #{userId}
+            </if>
+        </where>
+    </select>
+
+    <!-- 根据用户姓名进行查询-->
+    <select id="selectByName" parameterType="String" resultMap="userMapper">
+        select
+        <include refid="allField"></include>
+        from user
+        <where>
+            <if test="userName != null and userName != ''">
+                and username = #{userName}
+            </if>
+        </where>
+    </select>
+
+    <!-- 根据用户邮箱进行查询-->
+    <select id="selectByEmail" parameterType="String" resultMap="userMapper">
+        select
+        <include refid="allField"></include>
+        from user
+        <where>
+            <if test="userEmail != null and userEmail != ''">
+                and email = #{userEmail}
+            </if>
+        </where>
+    </select>
+
+    <!--
+    // 插入用户
+        int insertUser(User user);
+    -->
+    <insert id="insertUser" parameterType="user">
+        insert into user (<include refid="allField"></include>)
+        values (#{userId}, #{userName}, #{userPassword}, #{userEmail}, #{userType}, #{userStatus},
+        #{userActivationCode}, #{userHeaderUrl}, #{userCreateTime})
+    </insert>
+    <!--
+    // 更新用户状态
+        int updateStatus(int userId, int userStatus);
+    -->
+</mapper>

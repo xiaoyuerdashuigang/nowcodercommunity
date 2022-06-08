@@ -48,14 +48,15 @@ public class MapperTest {
     @Test
     public void testInsertUser() {
         User user = new User();
-        user.setUserName("test");
-        user.setUserPassword("123456");
-        user.setUserSalt("abc");
-        user.setUserEmail("test@qq.com");
-        user.setUserHeaderUrl("http://www.nowcoder.com/101.png");
+        user.setUserName("Tom3");
+        user.setUserPassword("1234567890");
+        user.setUserSalt("derfgfr");
+        user.setUserEmail("defgfrgty@qq.com");
+        user.setUserHeaderUrl("http://www.nowcoder.com/109.png");
         user.setUserCreateTime(new Date());
         int rows = userMapper.insertUser(user);
         System.out.println(rows);
+        System.out.println("**********************************");
         System.out.println(user.getUserId());
     }
 

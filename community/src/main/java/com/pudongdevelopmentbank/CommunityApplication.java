@@ -12,10 +12,9 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableTransactionManagement
 public class CommunityApplication {
 
-    private static final Logger logger = LoggerFactory.getLogger(CommunityApplication.class);
+//    private static final Logger logger = LoggerFactory.getLogger(CommunityApplication.class);
 
     public static void main(String[] args) {
-        logger.info("===========infoLogger=============");
         SpringApplication.run(CommunityApplication.class, args);
     }
 }

@@ -19,8 +19,7 @@
 
     <!-- 查询所有的字段-->
     <sql id="allField">
-        id
-        ,username,password,email,type,status,activation_code,header_url,create_time
+        username,password,salt,email,type,status,activation_code,header_url,create_time
     </sql>
 
     <!-- 根据用户Id查询-->
@@ -59,17 +58,28 @@
         </where>
     </select>
 
-    <!--
-    // 插入用户
-        int insertUser(User user);
-    -->
-    <insert id="insertUser" parameterType="user">
+    <!-- 插入用户 -->
+    <insert id="insertUser" parameterType="user" useGeneratedKeys="true"  keyProperty="userId">
         insert into user (<include refid="allField"></include>)
-        values (#{userId}, #{userName}, #{userPassword}, #{userEmail}, #{userType}, #{userStatus},
+        values (#{userName}, #{userPassword},#{userSalt}, #{userEmail}, #{userType}, #{userStatus},
         #{userActivationCode}, #{userHeaderUrl}, #{userCreateTime})
     </insert>
-    <!--
-    // 更新用户状态
-        int updateStatus(int userId, int userStatus);
-    -->
+    <!-- 更新用户状态-->
+    <update id="updateStatus">
+        update user
+        set status = #{userStatus}
+        where id = #{userId}
+    </update>
+    <!-- 更新用户的头像headerUrl-->
+    <update id="updateHeader">
+        update user
+        set header_url = #{userHeaderUrl}
+        where id = #{userId}
+    </update>
+    <!-- 更新用户密码-->
+    <update id="updatePassword">
+        update user
+        set password = #{userPassword}
+        where id = #{userId}
+    </update>
 </mapper>

@@ -1,0 +1,5 @@
+2022-06-07 20:54:07,744 INFO [main] c.p.LoggerTest [StartupInfoLogger.java:55] Starting LoggerTest using Java 17.0.3 on LAPTOP-6QJTJ8O4 with PID 18796 (started by LHMLXY in F:\nowcoderforum\community)
+2022-06-07 20:54:07,746 INFO [main] c.p.LoggerTest [SpringApplication.java:634] No active profile set, falling back to 1 default profile: "default"
+2022-06-07 20:54:08,785 INFO [main] o.s.b.a.w.s.WelcomePageHandlerMapping [WelcomePageHandlerMapping.java:57] Adding welcome page template: index
+2022-06-07 20:54:09,033 INFO [main] c.p.LoggerTest [StartupInfoLogger.java:61] Started LoggerTest in 1.549 seconds (JVM running for 2.056)
+2022-06-07 20:54:09,301 INFO [main] c.p.LoggerTest [LoggerTest.java:27] info logger

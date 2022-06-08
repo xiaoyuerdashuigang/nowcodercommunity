@@ -2,6 +2,8 @@ package com.pudongdevelopmentbank.service;
 
 import com.pudongdevelopmentbank.entity.User;
 
+import java.util.Map;
+
 /***
  *@Description TODO
  *@Author:Lihuiming
@@ -29,4 +31,10 @@ public interface UserService {
 
     // 更新用户密码
     int updatePassword(int userId, String userPassword);
+
+    // 注册用户
+    Map<String, Object> register(User user);
+
+    // 激活反馈
+    public int activation(int userId, String code);
 }
